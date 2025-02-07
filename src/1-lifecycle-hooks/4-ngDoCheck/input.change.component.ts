@@ -23,6 +23,6 @@ export class InputChangeComponent implements DoCheck {
   }
 
   ngDoCheck() {
-    console.log("ngDoCheck() çalıştı! - Kullanıcı input değiştirdi mi?");
+    console.log("4-ngDoCheck() çalıştı! - Kullanıcı input değiştirdi mi?");
   }
 }

@@ -14,18 +14,42 @@ export const routes: Routes = [
       {
         path: 'ng-on-changes',
         data: {title: 'NgOnChanges Component'},
-        loadComponent: () => import('../1-lifecycle-hooks/ngOnChanges/parent.component').then(m => m.ParentComponent),
+        loadComponent: () =>
+          import('../1-lifecycle-hooks/2-ngOnChanges/parent.component').then(m => m.ParentComponent),
       },
       {
         path: 'ng-on-init',
         data: {title: 'NgOnInit Component'},
-        loadComponent: () => import('../../src/1-lifecycle-hooks/ngOnInit/post.component').then(m => m.PostComponent)
+        loadComponent: () =>
+          import('../1-lifecycle-hooks/3-ngOnInit/post.component').then(m => m.PostComponent)
       },
       {
         path: 'ng-do-check',
         data: {title: 'NgDoCheck Component'},
-        loadComponent: () => import('../../src/1-lifecycle-hooks/ngDoCheck/input.change.component').then(m => m.InputChangeComponent)
+        loadComponent: () =>
+          import('../1-lifecycle-hooks/4-ngDoCheck/input.change.component').then(m => m.InputChangeComponent)
       },
+      {
+        path: 'ng-after-content-init',
+        data: {title: 'NgAfterContentInit Component'},
+        loadComponent: () =>
+          import('../1-lifecycle-hooks/5-ngAfterContentInit/present.component').then(m => m.PresentComponent),
+      },
+      {
+        path: 'ng-after-content-checked',
+        data: {title: 'NgAfterContentChecked Component'},
+        loadComponent: () =>
+          import('../1-lifecycle-hooks/6-ngAfterContentChecked/dietapp.component').then(m => m.DietAppComponent),
+      },
+      {
+        path: 'ng-after-view-init',
+        data: {title: 'NgAfterViewInit Component'},
+        loadComponent: () =>
+          import('../1-lifecycle-hooks/7-ngAfterViewInit/cargo.tracking.component').then(m => m.CargoTrackingComponent),
+      },
+
+
+
       {
         path : '**',
         redirectTo : '404',
@@ -33,5 +57,14 @@ export const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'data-binding',
+    children: [
+      {
+        path : '',
+        loadComponent: () => import('../2-data-binding/data-binding.component').then(m => m.DataBindingComponent),
+      }
+    ]
+  }
 
 ];

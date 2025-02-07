@@ -5,7 +5,7 @@ import {routes} from './app.routes';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgForOf, RouterLink],
+  imports: [RouterOutlet, RouterLink, NgForOf],
   templateUrl: './app.component.html',
  /* template: `
 
@@ -22,7 +22,6 @@ import {routes} from './app.routes';
 })
 export class AppComponent {
   constructor() {
-    console.log("fff", routes[0]['path'])
   }
   title = 'anglearn';
   protected readonly routes = routes;

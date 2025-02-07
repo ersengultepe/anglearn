@@ -11,7 +11,7 @@ export class ChildComponent implements OnChanges {
   @Input() deger!: string;
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChanges Çalıştı!', changes);
+    console.log('2-ngOnChanges Çalıştı!', changes);
     if (changes['deger']) {
       console.log(changes['deger'].previousValue);
       console.log(changes['deger'].currentValue);

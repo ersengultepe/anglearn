@@ -23,7 +23,7 @@ export class LifecycleHooksComponent {
 
   /*routesWithTitles: { path: string | undefined; title: any }[] = [];
 
-  constructor(private router: Router) {
+  1-constructor(private router: Router) {
     this.getRoutesWithTitles();
   }
 
