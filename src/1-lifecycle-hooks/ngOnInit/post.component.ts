@@ -1,16 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from './post.service';
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-post',
-  templateUrl: './post.component.html',
   standalone: true,
+  imports: [
+    NgForOf
+  ],
+  template:
+    `
+      <ul>
+        <li *ngFor="let post of posts">
+             {{post.title}}
+        </li>
+      </ul>
+    `,
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  posts?: any[];
 
-  constructor(private postService: PostService) {}
+  constructor(private postService: PostService) {
+
+  }
+
+  posts?: any[];
 
   ngOnInit() {
     this.postService.getPosts().subscribe({
