@@ -47,6 +47,19 @@ export const routes: Routes = [
         loadComponent: () =>
           import('../1-lifecycle-hooks/7-ngAfterViewInit/cargo.tracking.component').then(m => m.CargoTrackingComponent),
       },
+      {
+        path: 'ng-after-view-checked',
+        data: {title: 'NgAfterViewChecked Component'},
+        loadComponent: () =>
+          import('../1-lifecycle-hooks/8-ngAfterViewChecked/counter.component').then(m => m.CounterComponent),
+      },
+      {
+        path: 'ng-on-destroy',
+        data: {title: 'NgOnDestroy Component'},
+        loadComponent: () =>
+          import('../1-lifecycle-hooks/9-ngOnDestroy/television.component').then(m => m.TelevisionComponent),
+      },
+
 
 
 
