@@ -1,0 +1,25 @@
+<div style="border: 1px solid gray; width: 18%;padding: 2%">
+  <h2>ngStyle</h2>
+
+    <h4>1. Yöntem</h4>
+    <span [ngStyle]="{'color':isActive? 'green':'red'}">{{isActive?'Aktif':'Pasif'}}</span>
+
+    <h4>2. Yöntem</h4>
+    <span [style.color]="isActive ? 'green':'red'">{{isActive?'Aktif':'Pasif'}}</span>
+
+    <h4>Birden fazla style için</h4>
+    <span
+      [ngStyle]="{'color':isActive ? 'green':'red',
+      'font-weight':isActive? 'bolder' : 'lighter'}">
+      {{isActive?'Aktif':'Pasif'}}
+    </span>
+</div>
+
+<div style="border: 1px solid gray; width: 18%;padding: 2%">
+  <h2>ngClass</h2>
+  <h4>1. Yöntem</h4>
+  <span [ngClass]="isActive?'big':'small'">John Doe</span>
+
+  <h4>2. Yöntem</h4>
+  <span [ngClass]="myClasses">John Doe</span>
+</div>

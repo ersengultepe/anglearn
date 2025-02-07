@@ -7,14 +7,14 @@ import {NgIf, NgOptimizedImage} from '@angular/common';
   template: `
     <h3>Televizyon</h3>
     <div>
-      <img ngSrc="{{ 'https://picsum.photos/200/300?random=' + currentChannel }}"  alt="" width="300" height="300">
+      <img ngSrc="{{ 'https://picsum.photos/200/300?random=' + currentChannel }}" alt="" width="300" height="300">
     </div>
   `,
   imports: [
     FormsModule,
-    NgIf,
     NgOptimizedImage
   ],
+  standalone: true,
   styleUrls: ['./television.component.css']
 })
 export class TelevisionComponent implements OnInit, OnDestroy {

@@ -1,21 +1,22 @@
 import {Component} from '@angular/core';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {routes} from '../app/app.routes';
 import {RouterLink} from '@angular/router';
+import {NavigationComponent} from '../shared/navigation.component';
 
 @Component({
   selector: 'app-lifecycle-hooks',
   standalone: true,
   imports: [
     NgForOf,
-    RouterLink
+    RouterLink,
+    NgIf,
+    NavigationComponent
   ],
   template: `
-    <ul>
-      <li *ngFor="let route of routes[0]['children']">
-        <a [routerLink]="route.path">{{ route.data?.['title'] }}</a>
-      </li>
-    </ul>
+    <h3>Lifecycle Components</h3>
+    <app-navigation [parRoute]="'lifecycle-hooks'"></app-navigation>
+
   `
 })
 

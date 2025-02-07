@@ -4,13 +4,10 @@ export const routes: Routes = [
 
   {
     path : 'lifecycle-hooks',
+    //pathMatch: 'full',
+    data: {title : "Lifecycle Hooks Component"},
+    loadComponent: () => import('../../src/1-lifecycle-hooks/lifecycle-hooks.component').then(m => m.LifecycleHooksComponent),
     children: [
-      {
-        path : '',
-        pathMatch: 'full',
-        data: {title : "Lifecycle Hooks Component"},
-        loadComponent: () => import('../../src/1-lifecycle-hooks/lifecycle-hooks.component').then(m => m.LifecycleHooksComponent),
-      },
       {
         path: 'ng-on-changes',
         data: {title: 'NgOnChanges Component'},
@@ -59,10 +56,6 @@ export const routes: Routes = [
         loadComponent: () =>
           import('../1-lifecycle-hooks/9-ngOnDestroy/television.component').then(m => m.TelevisionComponent),
       },
-
-
-
-
       {
         path : '**',
         redirectTo : '404',
@@ -72,10 +65,40 @@ export const routes: Routes = [
   },
   {
     path: 'data-binding',
+    data: {title: 'Data Binding'},
+    loadComponent: () => import('../2-data-binding/data-binding.component').then(m => m.DataBindingComponent),
     children: [
       {
-        path : '',
-        loadComponent: () => import('../2-data-binding/data-binding.component').then(m => m.DataBindingComponent),
+        path : 'event-binding',
+        data: {title: 'Event Binding'},
+        loadComponent: () => import('../2-data-binding/event-binding/event-binding.component').then(m => m.EventBindingComponent),
+      },
+      {
+        path : 'property-binding',
+        data: {title: 'Property Binding'},
+        loadComponent: () => import('../2-data-binding/property-binding/property-binding.component').then(m => m.PropertyBindingComponent),
+      },
+      {
+        path : 'two-way-binding',
+        data: {title: 'Two-Way Binding'},
+        loadComponent: () => import('../2-data-binding/two-way-binding/two-way-binding.component').then(m => m.TwoWayBindingComponent),
+      },
+      {
+        path : 'interpolation-binding',
+        data: {title: 'Interpolation'},
+        loadComponent: () => import('../2-data-binding/interpolation/interpolation.component').then(m => m.InterpolationComponent),
+      }
+    ]
+  },
+  {
+    path: 'directives',
+    data: {title: 'Directives'},
+    loadComponent: ()=>import('../3-directives/directives.component').then(m => m.DirectivesComponent),
+    children:[
+      {
+        path: 'structural',
+        data: {title: 'Structural Directives'},
+        loadComponent: () => import('../3-directives/structural/structural.component').then(m => m.StructuralComponent)
       }
     ]
   }
