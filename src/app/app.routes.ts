@@ -101,6 +101,31 @@ export const routes: Routes = [
         loadComponent: () => import('../3-directives/structural/structural.component').then(m => m.StructuralComponent)
       }
     ]
+  },
+  {
+    path : 'rxjs',
+    children:[
+      {
+        path: '',
+        data: {title: 'Reactive Programming - RxJS'},
+        loadComponent: () => import('../4-rxjs/observable.component').then(m => m.ObservableComponent),
+      },
+      {
+        path: 'image-api',
+        data: {title: 'Image Service and API Using'},
+        loadComponent: () => import('../4-rxjs/image.component').then(m => m.ImageComponent)
+      },
+      {
+        path: 'pipe-and-subscribe',
+        data: {title: 'Pipe and Subscribe Using'},
+        loadComponent: () => import('../4-rxjs/pipe-and-subscribe.component').then(m => m.PipeAndSubscribeComponent)
+      },
+      {
+        path: 'rxjs-map',
+        data: {title: 'RxJS - Map Operator'},
+        loadComponent: () => import('../4-rxjs/map.component').then(m => m.MapComponent)
+      }
+    ]
   }
 
 ];

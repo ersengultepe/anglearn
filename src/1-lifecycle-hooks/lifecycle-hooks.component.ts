@@ -21,7 +21,6 @@ import {NavigationComponent} from '../shared/navigation.component';
 })
 
 export class LifecycleHooksComponent {
-
   /*routesWithTitles: { path: string | undefined; title: any }[] = [];
 
   1-constructor(private router: Router) {

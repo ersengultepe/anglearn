@@ -1,46 +1,35 @@
 import { Component } from '@angular/core';
-import {NgClass, NgStyle} from '@angular/common';
+import {NgClass, NgForOf, NgIf, NgStyle, NgSwitch, NgSwitchCase} from '@angular/common';
 
 @Component({
   selector: 'app-structural',
   imports: [
     NgStyle,
-    NgClass
+    NgClass,
+    NgIf,
+    NgForOf,
+    NgSwitch,
+    NgSwitchCase
   ],
   templateUrl: './structural.component.html',
-  styles: [
-    `
-        .big{
-          font-size: 40px
-        }
-        .small{
-          font-size: 15px;
-        }
-
-        .textDanger{
-          color:blue;
-        }
-        .fontWeightBold{
-          font-weight: bold;
-        }
-        .bgYellow{
-          background-color: yellow;
-        }
-    `
-  ],
   standalone: true
 })
 export class StructuralComponent {
-    myClasses = {
-      'textDanger': false,
-      'fontWeightBold':true,
-      'bgYellow':true
-    }
-    isActive:boolean = true
-    fruits:string[] = ['apple', 'orange', 'banana', 'watermelon']
-    roles:string[] = ['director', 'secretary', 'administrator']
+  isView:boolean = true
+  showHello: boolean = true;
+  showGoodbye: boolean = false;
 
-    constructor() {
-      this.myClasses.bgYellow = false
-    }
+  fruits:string[] = ['apple', 'orange', 'banana', 'watermelon']
+
+  selectedRole:string = 'secretary'
+  roles:string[] = ['director', 'secretary', 'administrator']
+  isLoggedIn: boolean = false;
+  colors = ["Red", "Blue", "White"];
+
+  courses = [
+    { id: 1, name: "Angular For Beginners" },
+    { id: 2, name: "Angular Core Deep Dive" },
+    { id: 3, name: "Angular Forms In Depth" },
+  ];
+  currency:string = '₺'
 }

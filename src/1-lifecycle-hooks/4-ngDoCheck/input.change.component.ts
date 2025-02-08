@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
   imports: [
     FormsModule
   ],
+  standalone: true,
   styleUrls: ['./app.component.css']
 })
 export class InputChangeComponent implements DoCheck {

@@ -1,25 +1,85 @@
-<div style="border: 1px solid gray; width: 18%;padding: 2%">
-  <h2>ngStyle</h2>
+<h2>NgIf Kullanımı</h2>
+<h4 *ngIf="isView">Bu bir h4 başlıktır</h4>
+<input type="button" value="{{isView? 'Gizle': 'Göster'}}" (click)="isView=!isView"/>
+<hr>
 
-    <h4>1. Yöntem</h4>
-    <span [ngStyle]="{'color':isActive? 'green':'red'}">{{isActive?'Aktif':'Pasif'}}</span>
-
-    <h4>2. Yöntem</h4>
-    <span [style.color]="isActive ? 'green':'red'">{{isActive?'Aktif':'Pasif'}}</span>
-
-    <h4>Birden fazla style için</h4>
-    <span
-      [ngStyle]="{'color':isActive ? 'green':'red',
-      'font-weight':isActive? 'bolder' : 'lighter'}">
-      {{isActive?'Aktif':'Pasif'}}
-    </span>
+<h2>NgIf Else Kullanımı</h2>
+<div *ngIf="isLoggedIn; else loggedOut">
+  Giriş yapıldı
 </div>
 
-<div style="border: 1px solid gray; width: 18%;padding: 2%">
-  <h2>ngClass</h2>
-  <h4>1. Yöntem</h4>
-  <span [ngClass]="isActive?'big':'small'">John Doe</span>
+<ng-template #loggedOut>
+  Lütfen giriş yapınız !
+</ng-template>
+<hr>
 
-  <h4>2. Yöntem</h4>
-  <span [ngClass]="myClasses">John Doe</span>
+<h2>NgFor Kullanımı</h2>
+<ul>
+  <li *ngFor="let fruit of fruits">
+    {{fruit}}
+  </li>
+</ul>
+<hr>
+
+<h2>NgSwitch Kullanımı</h2>
+<div [ngSwitch]="selectedRole">
+  <h4 *ngSwitchCase="'director'">Sayın direktör; %65 zam aldınız..!</h4>
+  <h4 *ngSwitchCase="'secretary'">Sayın sekreter; %25 zam aldınız..!</h4>
+  <h4 *ngSwitchCase="'administrator'">Sayın direktör; %45 zam aldınız..!</h4>
 </div>
+<hr>
+
+<h2>&#64;If Kullanımı</h2>
+@if (showHello) {
+  return <h2>Hello</h2>
+}
+
+@if (showHello) {
+  <h2>Hello</h2>
+}
+@else {
+  <h2>Goodbye</h2>
+}
+<hr>
+
+@if (showHello) {
+  <h2>Hello</h2>
+}
+@else if (showGoodbye) {
+  <h2>Goodbye</h2>
+}
+@else {
+  <h2>See you later</h2>
+}
+<hr>
+
+<h2>&#64;for Kullanımı</h2>
+<ul>
+@for (color of colors; track color) {
+  <li>{{ color }}</li>
+}
+</ul>`,
+<hr>
+
+<ul>
+  @for (course of courses; track course.id) {
+    <li>{{ course.name }}</li>
+  }
+</ul>
+<hr>
+
+<h2>&#64;Switch Kullanımı</h2>
+@switch (currency){
+  @case ('₺'){
+    <div>Türk Lirası</div>
+  }
+  @case ('$'){
+    <div>Amarikan Doları</div>
+  }
+  @case ('€'){
+    <div>Euro</div>
+  }
+  @default {
+    <div>Tanımsız !!!</div>
+  }
+}
