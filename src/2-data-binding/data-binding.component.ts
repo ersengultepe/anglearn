@@ -8,8 +8,6 @@ import {NavigationComponent} from '../shared/navigation.component';
   selector: 'app-data-binding',
   standalone: true,
   imports: [
-    NgForOf,
-    RouterLink,
     NavigationComponent
   ],
   template: `

@@ -99,14 +99,20 @@ export const routes: Routes = [
         path: 'structural',
         data: {title: 'Structural Directives'},
         loadComponent: () => import('../3-directives/structural/structural.component').then(m => m.StructuralComponent)
+      },
+      {
+        path: 'attribute',
+        data: {title: 'Attribute Directives'},
+        loadComponent: () => import('../3-directives/attribute/attribute.component').then(m => m.AttributeComponent)
       }
     ]
   },
   {
     path : 'rxjs',
+    loadComponent: () => import('../4-rxjs/rxjs.component').then(m => m.RxjsComponent),
     children:[
       {
-        path: '',
+        path: 'observables',
         data: {title: 'Reactive Programming - RxJS'},
         loadComponent: () => import('../4-rxjs/observable.component').then(m => m.ObservableComponent),
       },
@@ -124,6 +130,26 @@ export const routes: Routes = [
         path: 'rxjs-map',
         data: {title: 'RxJS - Map Operator'},
         loadComponent: () => import('../4-rxjs/map.component').then(m => m.MapComponent)
+      },
+      {
+        path: 'rxjs-filter',
+        data: {title: 'RxJS - Filter Operator'},
+        loadComponent: () => import('../4-rxjs/filter.component').then(m => m.FilterComponent)
+      },
+      {
+        path: 'rxjs-tap',
+        data: {title: 'RxJS - Tap Operator'},
+        loadComponent: () => import('../4-rxjs/tap.component').then(m => m.TapComponent)
+      },
+      {
+        path: 'rxjs-switchmap',
+        data: {title: 'RxJS - SwitchMap Operator'},
+        loadComponent: () => import('../4-rxjs/switchmap.component').then(m => m.SwitchmapComponent)
+      },
+      {
+        path: 'rxjs-mergemap',
+        data: {title: 'RxJS - MergeMap Operator'},
+        loadComponent: () => import('../4-rxjs/mergemap.component').then(m => m.MergemapComponent)
       }
     ]
   }

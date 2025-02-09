@@ -8,9 +8,6 @@ import {NavigationComponent} from '../shared/navigation.component';
   selector: 'app-lifecycle-hooks',
   standalone: true,
   imports: [
-    NgForOf,
-    RouterLink,
-    NgIf,
     NavigationComponent
   ],
   template: `

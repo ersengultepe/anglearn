@@ -4,8 +4,6 @@ import {NgClass, NgForOf, NgIf, NgStyle, NgSwitch, NgSwitchCase} from '@angular/
 @Component({
   selector: 'app-structural',
   imports: [
-    NgStyle,
-    NgClass,
     NgIf,
     NgForOf,
     NgSwitch,

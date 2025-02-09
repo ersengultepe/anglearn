@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService} from '../1-lifecycle-hooks/3-ngOnInit/post.service';
-import {map, take} from 'rxjs';
+import {fromEvent, map, take} from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-map',
@@ -37,14 +37,17 @@ export class MapComponent implements OnInit{
   constructor(private postService:PostService) { }
 
   ngOnInit(): void {
+    this.getPosts();
+  }
+
+  private getPosts() {
     this.postService.getPosts()
       .pipe(
-        map(posts => posts.map(post => post.title)),
-        map(posts => posts.slice(0,5))
+        map(posts => posts.slice(0, 5).map(post => post.title)),
       )
       .subscribe({
-        next:data => console.log(data),
-        error:err => console.log("Hata oluştu", err),
+        next: data => console.log(data),
+        error: err => console.log("Hata oluştu", err),
         complete: () => console.log('api çağrısı sonlandı !!!')
       })
   }
