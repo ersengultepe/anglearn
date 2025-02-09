@@ -8,8 +8,7 @@ import {NavigationComponent} from '../shared/navigation.component';
     NavigationComponent
   ],
   template: `
-    <h3>Direktives</h3>
-    <app-navigation [parRoute]="'directives'"></app-navigation>
+    <app-navigation [routeTitle]="'Directives'" [parRoute]="'directives'"></app-navigation>
   `
 })
 

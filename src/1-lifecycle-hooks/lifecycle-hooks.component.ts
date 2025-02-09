@@ -11,8 +11,7 @@ import {NavigationComponent} from '../shared/navigation.component';
     NavigationComponent
   ],
   template: `
-    <h3>Lifecycle Components</h3>
-    <app-navigation [parRoute]="'lifecycle-hooks'"></app-navigation>
+    <app-navigation [routeTitle]="'Lifecycle Components'" [parRoute]="'lifecycle-hooks'"></app-navigation>
 
   `
 })

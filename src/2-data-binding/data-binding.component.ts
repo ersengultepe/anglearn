@@ -11,8 +11,7 @@ import {NavigationComponent} from '../shared/navigation.component';
     NavigationComponent
   ],
   template: `
-    <h3>Data Binding Components</h3>
-    <app-navigation [parRoute]="'data-binding'"></app-navigation>
+    <app-navigation [routeTitle]="'Data Binding Components'" [parRoute]="'data-binding'"></app-navigation>
   `
 })
 export class DataBindingComponent {

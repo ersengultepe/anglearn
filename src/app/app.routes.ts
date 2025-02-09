@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import {FormValidationComponent} from '../4-dependency-injection/form-validation.component';
 
 export const routes: Routes = [
 
@@ -108,48 +109,75 @@ export const routes: Routes = [
     ]
   },
   {
+    path: 'dependency-injection',
+    data: {title: "Dependency Injection - DI"},
+    loadComponent: () => import('../4-dependency-injection/dependency-injection.component').then(m => m.DependencyInjectionComponent),
+    children:[
+      {
+        path: 'form-validation',
+        data: {title: 'DI - Form Validations'},
+        loadComponent: () => import('../4-dependency-injection/form-validation.component').then(m => m.FormValidationComponent)
+      },
+      {
+        path: 'reactive-forms',
+        data: {title: 'DI - Reactive Forms'},
+        loadComponent: () => import('../4-dependency-injection/reactive-forms.component').then(m => m.ReactiveFormsComponent)
+      },
+      {
+        path: 'template-driven-forms',
+        data: {title: 'DI - Template Driven Forms'},
+        loadComponent: () => import('../4-dependency-injection/template-driven-forms.component').then(m => m.TemplateDrivenFormsComponent)
+      }
+    ]
+  },
+  {
     path : 'rxjs',
-    loadComponent: () => import('../4-rxjs/rxjs.component').then(m => m.RxjsComponent),
+    loadComponent: () => import('../5-rxjs/rxjs.component').then(m => m.RxjsComponent),
     children:[
       {
         path: 'observables',
         data: {title: 'Reactive Programming - RxJS'},
-        loadComponent: () => import('../4-rxjs/observable.component').then(m => m.ObservableComponent),
+        loadComponent: () => import('../5-rxjs/observable.component').then(m => m.ObservableComponent),
       },
       {
         path: 'image-api',
         data: {title: 'Image Service and API Using'},
-        loadComponent: () => import('../4-rxjs/image.component').then(m => m.ImageComponent)
+        loadComponent: () => import('../5-rxjs/image.component').then(m => m.ImageComponent)
       },
       {
         path: 'pipe-and-subscribe',
         data: {title: 'Pipe and Subscribe Using'},
-        loadComponent: () => import('../4-rxjs/pipe-and-subscribe.component').then(m => m.PipeAndSubscribeComponent)
+        loadComponent: () => import('../5-rxjs/pipe-and-subscribe.component').then(m => m.PipeAndSubscribeComponent)
       },
       {
         path: 'rxjs-map',
         data: {title: 'RxJS - Map Operator'},
-        loadComponent: () => import('../4-rxjs/map.component').then(m => m.MapComponent)
+        loadComponent: () => import('../5-rxjs/map.component').then(m => m.MapComponent)
       },
       {
         path: 'rxjs-filter',
         data: {title: 'RxJS - Filter Operator'},
-        loadComponent: () => import('../4-rxjs/filter.component').then(m => m.FilterComponent)
+        loadComponent: () => import('../5-rxjs/filter.component').then(m => m.FilterComponent)
       },
       {
         path: 'rxjs-tap',
         data: {title: 'RxJS - Tap Operator'},
-        loadComponent: () => import('../4-rxjs/tap.component').then(m => m.TapComponent)
+        loadComponent: () => import('../5-rxjs/tap.component').then(m => m.TapComponent)
       },
       {
         path: 'rxjs-switchmap',
         data: {title: 'RxJS - SwitchMap Operator'},
-        loadComponent: () => import('../4-rxjs/switchmap.component').then(m => m.SwitchmapComponent)
+        loadComponent: () => import('../5-rxjs/switchmap.component').then(m => m.SwitchmapComponent)
       },
       {
         path: 'rxjs-mergemap',
         data: {title: 'RxJS - MergeMap Operator'},
-        loadComponent: () => import('../4-rxjs/mergemap.component').then(m => m.MergemapComponent)
+        loadComponent: () => import('../5-rxjs/mergemap.component').then(m => m.MergemapComponent)
+      },
+      {
+        path: "rxjs-concatmap",
+        data:{title: "RxJS - ConcatMap Operator"},
+        loadComponent: () => import('../5-rxjs/concatmap.component').then(m => m.ConcatmapComponent)
       }
     ]
   }
