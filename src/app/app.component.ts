@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
-import {NgForOf, NgStyle} from '@angular/common';
+import {NgForOf} from '@angular/common';
 import {routes} from './app.routes';
-import {Button} from 'primeng/button';
 import {Card} from 'primeng/card';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, NgForOf, Button, Card, NgStyle],
+  imports: [RouterOutlet, RouterLink, NgForOf, Card],
   template: `
 
-    <p-card header="Angular Learning" [styleClass]="'custom-card'">
+    <p-card header="Angular Learning" [style]="{
+        border: '2px solid white',
+        borderRadius: '15px',
+        width: '30rem',
+        color: 'gray',
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
+    }">
       <ul style="list-style-type: none">
         <li *ngFor="let route of routes">
           <a [routerLink]="route.path">

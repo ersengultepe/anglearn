@@ -1,11 +1,9 @@
-import { Routes } from '@angular/router';
-import {FormValidationComponent} from '../4-dependency-injection/form-validation.component';
+import {Routes} from '@angular/router';
 
 export const routes: Routes = [
 
   {
     path : 'lifecycle-hooks',
-    //pathMatch: 'full',
     data: {title : "Lifecycle Hooks Component"},
     loadComponent: () => import('../../src/1-lifecycle-hooks/lifecycle-hooks.component').then(m => m.LifecycleHooksComponent),
     children: [
@@ -178,6 +176,33 @@ export const routes: Routes = [
         path: "rxjs-concatmap",
         data:{title: "RxJS - ConcatMap Operator"},
         loadComponent: () => import('../5-rxjs/concatmap.component').then(m => m.ConcatmapComponent)
+      }
+    ]
+  },
+  {
+    path : 'forms',
+    data: {title: 'Forms Components'},
+    loadComponent: () => import('../6-forms/forms.component').then(m => m.FormComponent),
+    children: [
+      {
+        path: 'template-driven-forms',
+        data: {title: 'Template Driven Forms'},
+        loadComponent: () => import('../6-forms/template-driven/template-driven.component').then(m => m.TemplateDrivenComponent)
+      },
+      {
+        path: 'reactive-forms',
+        data: {title: 'Reactive Forms'},
+        loadComponent: () => import('../6-forms/reactive-forms/reactive-forms.component').then(m => m.ReactiveFormsComponent)
+      },
+      {
+        path: 'dynamic-reactive',
+        data: {title: 'Dynamic Reactive Forms'},
+        loadComponent: () => import('../6-forms/dynamic-reactive/dynamic-reactive.component').then(m => m.DynamicReactiveComponent)
+      },
+      {
+        path: 'form-validation',
+        data: {title: 'Form Validations'},
+        loadComponent: () => import('../6-forms/form-validation/form-validation.component').then(m => m.FormValidationComponent)
       }
     ]
   }

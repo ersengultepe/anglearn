@@ -1,13 +1,11 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ChildComponent} from './child.component';
-import {Button} from 'primeng/button';
 
 @Component({
   selector: 'app-parent',
   standalone: true,
   imports: [
-    ChildComponent,
-    Button
+    ChildComponent
   ],
   template: `
     <button (click)="degistir()">Değiştir</button>

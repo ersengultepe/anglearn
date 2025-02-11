@@ -1,0 +1,35 @@
+<h2>Kayıt Formu</h2>
+<form #userForm="ngForm" (ngSubmit)="onSubmit()">
+  <div>
+    <input pInputText name="name" [(ngModel)]="user.name" required #name="ngModel" placeholder="Ad">
+    <div *ngIf="name.invalid && name.touched" class="error">
+      Ad zorunludur!
+    </div>
+  </div>
+
+  <div>
+    <input pInputText  name="email" [(ngModel)]="user.email" required email #email="ngModel"  placeholder="Email" class="ng-invalid ng-dirty">
+    <div *ngIf="email.invalid && email.touched" class="error">
+      Geçerli bir e-posta giriniz!
+    </div>
+  </div>
+
+  <div>
+    <input pInputText name="password" [(ngModel)]="user.password" required minlength="6" #password="ngModel" placeholder="Şifre">
+    <div *ngIf="password.invalid && password.touched" class="error">
+      Şifre en az 6 karakter olmalıdır!
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="userForm.invalid">Kaydol</button>
+
+  <hr>
+  <div>Form Valid : {{userForm.valid}}</div>
+  <div>Form Invalid : {{userForm.invalid}}</div>
+  <div>Form Pristine : {{userForm.pristine}}</div>
+  <div>Form Dirty : {{userForm.dirty}}</div>
+  <div>UsenName Invalid : {{name.invalid}}</div>
+  <div>UserName Touched : {{userForm.touched}}</div>
+
+
+</form>

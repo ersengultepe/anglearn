@@ -1,7 +1,5 @@
 import {Component} from '@angular/core';
-import {NgForOf, NgIf} from '@angular/common';
 import {routes} from '../app/app.routes';
-import {RouterLink} from '@angular/router';
 import {NavigationComponent} from '../shared/navigation.component';
 
 @Component({
@@ -12,7 +10,6 @@ import {NavigationComponent} from '../shared/navigation.component';
   ],
   template: `
     <app-navigation [routeTitle]="'Lifecycle Components'" [parRoute]="'lifecycle-hooks'"></app-navigation>
-
   `
 })
 
