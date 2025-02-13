@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
+import {Fieldset} from 'primeng/fieldset';
+import {AutoFocus} from 'primeng/autofocus';
+import {InputText} from 'primeng/inputtext';
 
 @Component({
   selector: 'app-dynamic-reactive',
@@ -8,9 +11,13 @@ import {NgForOf, NgIf} from '@angular/common';
     FormsModule,
     NgForOf,
     NgIf,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Fieldset,
+    AutoFocus,
+    InputText
   ],
   templateUrl: './dynamic-reactive.component.html',
+  standalone: true,
   styleUrl: './dynamic-reactive.component.css'
 })
 export class DynamicReactiveComponent {
@@ -21,12 +28,12 @@ export class DynamicReactiveComponent {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      phones: this.fb.array(['', [Validators.required, Validators.minLength(10)]])
+      phones: this.fb.array([new FormControl('', [Validators.required, Validators.minLength(10)])])
     })
   }
 
   addPhones(){
-    this.userForm.get('phones')?.value?.push(new FormControl('', Validators.required));
+    this.userForm.get('phones')?.value?.push(new FormControl('', [Validators.required, Validators.minLength(10)]));
   }
 
   formReset(){

@@ -1,14 +1,17 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgIf} from '@angular/common';
+import {Fieldset} from 'primeng/fieldset';
 
 @Component({
   selector: 'app-reactive-forms',
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    Fieldset
   ],
   templateUrl: './reactive-forms.component.html',
+  standalone: true,
   styleUrl: './reactive-forms.component.css'
 })
 export class ReactiveFormsComponent {
