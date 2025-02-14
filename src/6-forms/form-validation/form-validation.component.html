@@ -1,6 +1,13 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+  <p>"myForm.valid " : {{myForm.valid}}</p>
+  <p>"myForm.invalid " :{{myForm.invalid}}</p>
+  <p>"myForm.dirty " : {{myForm.dirty}}</p>
+  <p>"myField.pristine " :{{myForm.get('myField')?.pristine}}</p>
+  <p>"myField.touched " :{{myForm.get('myField')?.touched}}</p>
+
   <input formControlName="myField" placeholder="Enter text">
-  <div *ngIf="myForm.get('myField')?.hasError('minLength')">
+  <div *ngIf="myForm.dirty && myForm.get('myField')?.hasError('minLength')">
     En az 6 karakter girmelisiniz!
   </div>
   <div *ngIf="myForm.get('myField')?.hasError('onlyLetters')">

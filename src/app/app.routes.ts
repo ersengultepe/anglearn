@@ -1,4 +1,5 @@
 import {Routes} from '@angular/router';
+import {learnRoutes} from '../7-routing/learn-routing.route';
 
 export const routes: Routes = [
 
@@ -205,6 +206,10 @@ export const routes: Routes = [
         loadComponent: () => import('../6-forms/form-validation/form-validation.component').then(m => m.FormValidationComponent)
       }
     ]
+  },
+  {
+    path: 'routing',
+    data: {title: 'Routing Components'},
+    loadChildren: () => import('../7-routing/learn-routing.route').then(m => learnRoutes)
   }
-
 ];

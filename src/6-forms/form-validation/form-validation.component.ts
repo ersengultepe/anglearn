@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, DoCheck} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {onlyLettersValidator} from './only-letters-validator';
 import {NgIf} from '@angular/common';
@@ -12,7 +12,7 @@ import {NgIf} from '@angular/common';
   templateUrl: './form-validation.component.html',
   standalone: true,
 })
-export class FormValidationComponent {
+export class FormValidationComponent implements DoCheck{
   myForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -28,4 +28,9 @@ export class FormValidationComponent {
       console.log('Form is invalid!');
     }
   }
+
+  ngDoCheck() {
+    console.log("errors", this.myForm.get('myField')?.errors)
+  }
+
 }
