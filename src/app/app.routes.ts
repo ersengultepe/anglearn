@@ -2,7 +2,6 @@ import {Routes} from '@angular/router';
 import {learnRoutes} from '../7-routing/learn-routing.route';
 
 export const routes: Routes = [
-
   {
     path : 'lifecycle-hooks',
     data: {title : "Lifecycle Hooks Component"},
@@ -113,19 +112,14 @@ export const routes: Routes = [
     loadComponent: () => import('../4-dependency-injection/dependency-injection.component').then(m => m.DependencyInjectionComponent),
     children:[
       {
-        path: 'form-validation',
-        data: {title: 'DI - Form Validations'},
-        loadComponent: () => import('../4-dependency-injection/form-validation.component').then(m => m.FormValidationComponent)
+        path: 'di-api',
+        data: {title: 'DI - Api Component'},
+        loadComponent: () => import('../4-dependency-injection/diApi.component').then(m => m.DiApiComponent)
       },
       {
-        path: 'reactive-forms',
-        data: {title: 'DI - Reactive Forms'},
-        loadComponent: () => import('../4-dependency-injection/reactive-forms.component').then(m => m.ReactiveFormsComponent)
-      },
-      {
-        path: 'template-driven-forms',
-        data: {title: 'DI - Template Driven Forms'},
-        loadComponent: () => import('../4-dependency-injection/template-driven-forms.component').then(m => m.TemplateDrivenFormsComponent)
+        path: 'di-receipt',
+        data: {title: 'DI - Receipt Component'},
+        loadComponent: () => import('../4-dependency-injection/receipt.component').then(m => m.ReceiptComponent)
       }
     ]
   },
@@ -167,6 +161,11 @@ export const routes: Routes = [
         path: 'rxjs-switchmap',
         data: {title: 'RxJS - SwitchMap Operator'},
         loadComponent: () => import('../5-rxjs/switchmap.component').then(m => m.SwitchmapComponent)
+      },
+      {
+        path: 'rxjs-signals',
+        data: {title: 'Signals'},
+        loadComponent: () => import('../5-rxjs/signals.component').then(m => m.SignalsComponent),
       },
       {
         path: 'rxjs-mergemap',

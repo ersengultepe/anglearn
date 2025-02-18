@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavigationComponent} from '../shared/navigation.component';
+import {DiService} from './di.service';
 
 @Component({
   selector: "app-dI",
@@ -14,6 +15,6 @@ import {NavigationComponent} from '../shared/navigation.component';
   standalone: true
 })
 
-export class DependencyInjectionComponent{
+export class DependencyInjectionComponent {
 
 }

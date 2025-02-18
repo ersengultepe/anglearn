@@ -6,7 +6,11 @@ import {NavigationComponent} from '../../shared/navigation.component';
   imports: [
     NavigationComponent
   ],
-  template: `<app-navigation [parRoute]="'routing'" [routeTitle]="'Learn Routing'"></app-navigation>`
+  standalone: true,
+  template: `
+    <app-navigation [parRoute]="'routing'" [routeTitle]="'Learn Routing'"></app-navigation>
+    asdadasd
+  `
 })
 export class LearnRoutingComponent {
 
