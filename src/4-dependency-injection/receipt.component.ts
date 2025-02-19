@@ -10,5 +10,4 @@ import {CalculatorService} from './calculator.service';
 export class ReceiptComponent{
   calculator = inject(CalculatorService)
   totalCost = this.calculator.add(63,25)
-
 }

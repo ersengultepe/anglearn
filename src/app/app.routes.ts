@@ -176,6 +176,11 @@ export const routes: Routes = [
         path: "rxjs-concatmap",
         data:{title: "RxJS - ConcatMap Operator"},
         loadComponent: () => import('../5-rxjs/concatmap.component').then(m => m.ConcatmapComponent)
+      },
+      {
+        path: "rxjs-input-instead-of-signals",
+        data:{title: "Input Instead Of Signals"},
+        loadComponent: () => import('../5-rxjs/input-instead-of-signals/parent.component').then(m => m.ParentComponent)
       }
     ]
   },

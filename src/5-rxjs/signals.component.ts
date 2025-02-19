@@ -6,7 +6,8 @@ import {FormsModule} from '@angular/forms';
   template: `
     <label for="quantity">Miktar  </label>
     <input type="number" id="quantity" [ngModel]="quantity()" (ngModelChange)="quantity.set($event)" placeholder="Miktar Yaz">
-
+<br>
+<br>
     <label for="unitPrice">Birim Fiyat  </label>
     <input type="text" id="unitPrice" [ngModel]="unitPrice()" (ngModelChange)="unitPrice.set($event)" placeholder="Birim Fiyat Yaz">
 
@@ -26,9 +27,21 @@ import {FormsModule} from '@angular/forms';
 
 export class SignalsComponent{
 
+  constructor() {
+    this.quantity.set(35)
+    console.info("quantity set first: ", this.quantity())
+    //işlemler....
+    this.quantity.set(this.quantity() + 5)
+    console.info("quantity set second: ", this.quantity())
+    //update
+    this.quantity.update(value => value + 20)
+    console.info("quantity update: ", this.quantity());
+  }
+
+  tax:number = 1.20
   quantity = signal<number>(0)
   unitPrice = signal<number>(0)
-  amount = computed(() => this.quantity() * this.unitPrice())
+  amount = computed(() => this.quantity() * this.unitPrice() * this.tax)
   balance = computed(() => this.debt() - this.amount())
   debt= signal(500)
 
@@ -37,5 +50,6 @@ export class SignalsComponent{
     // this.balance.set()
 
     this.quantity.set(3)
+
   }
 }

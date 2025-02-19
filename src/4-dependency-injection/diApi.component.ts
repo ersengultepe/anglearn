@@ -26,9 +26,9 @@ import {BehaviorSubject, debounceTime, distinctUntilChanged, of, switchMap} from
 export class DiApiComponent implements OnInit{
 
   userId!:number
-
+/*
   private userIdSubject = new BehaviorSubject<number>(0)
-  userId$ = this.userIdSubject.asObservable()
+  userId$ = this.userIdSubject.asObservable()*/
 
   userName$!:string
   name$!:string
