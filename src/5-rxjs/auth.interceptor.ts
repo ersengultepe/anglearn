@@ -1,31 +1,43 @@
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
-import {Observable, tap} from 'rxjs';
-import {Injectable} from '@angular/core';
+import {HttpEvent, HttpInterceptorFn, HttpResponse} from '@angular/common/http';
+import {catchError, tap} from 'rxjs';
 
-@Injectable()
-export class AuthInterceptor implements HttpInterceptor {
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+export const authInterceptor: HttpInterceptorFn = (request, next) => {
+
+  /**
+   * app.config.ts
+   * provideHttpClient(
+   *       withInterceptors([authInterceptor]),
+   *     ),
+   */
+
+
+  const token = localStorage.getItem('token')
+
+  if(token){
     // İstek üzerinde değişiklik yapma (örneğin, header ekleme)
-    const authReq = req.clone({
-      setHeaders: { Authorization: 'Bearer my-token' },
+    const authReq = request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+
     });
-
-    // Değiştirilmiş isteği bir sonraki interceptor'a veya backend'e gönderme
-    return next.handle(authReq).pipe(
-      tap((event: HttpEvent<any>)=>{
-        if(event instanceof HttpResponse){
-          //Burada başarılı bir yanıt alındığında yapılması gereken işlemler yapılabilir
-        }
-      }).catchError((error: HttpResponse<any>) => {
-        if(error.status === 401){
-          
-        }
-      })
-    )
   }
-}
 
+  // Değiştirilmiş isteği bir sonraki interceptor'a veya backend'e gönderme
+  return next(request).pipe(
+    tap((event: HttpEvent<any>)=>{
+      if(event instanceof HttpResponse){
+        //Burada başarılı bir yanıt alındığında yapılması gereken işlemler yapılabilir
+      }
+    }),
+    catchError((error: HttpResponse<any>) => {
+      if(error.status === 401){
+        //login sayfasına yönlendir.
+        //this.route.navigayteByUrl('/auth/login') gibi
+      }
+      return []
+    })
+  )
 
+};

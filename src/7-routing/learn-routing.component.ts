@@ -9,7 +9,7 @@ import {NavigationComponent} from '../../shared/navigation.component';
   standalone: true,
   template: `
     <app-navigation [parRoute]="'routing'" [routeTitle]="'Learn Routing'"></app-navigation>
-    asdadasd
+
   `
 })
 export class LearnRoutingComponent {

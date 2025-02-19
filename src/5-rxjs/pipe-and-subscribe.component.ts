@@ -8,6 +8,13 @@ import {filter, map, Observable, of} from 'rxjs';
 })
 
 export class PipeAndSubscribeComponent {
+  /**
+   * app.config.ts
+   * provideHttpClient(
+   *       withInterceptors([authInterceptor]),
+   *     ),
+   */
+
   constructor() {
     const streamNumbers$:Observable<number> = of(1,2,3,4,5,6)
 
